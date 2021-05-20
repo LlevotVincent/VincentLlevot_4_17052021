@@ -39,11 +39,6 @@ function checkFirst(text) {
     FirstError.style.display = "block";
 }}
 
-//code Samy
-document.querySelector(".btn-submit").addEventListener("click", checkForm)
-function checkForm() {
-  console.log("Je vais vérifier le formulaire")
-}
  
 function checkContent(type) {
  
@@ -93,4 +88,10 @@ function checkContent(type) {
       document.getElementById(type + "-error").innerText = errorMessages[type]
     }
   }
+//
+
+
+
+
+
 }
