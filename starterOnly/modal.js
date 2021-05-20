@@ -28,6 +28,7 @@ const closePopup = document
 
 function closeFormPopup() {
   modalbg.style.display = "none";
+}
  
 function checkContent(type) {
  
@@ -40,6 +41,7 @@ function checkContent(type) {
     location: "Veuillez choisir une ville.",
     checkbox: "Veuillez accepter les conditions d'utilisations.",
   };
+
     //first last name validation
   if (type === "first" || type === "last") {
     let zoneForm = document.getElementById(type).value;
@@ -79,7 +81,14 @@ function checkContent(type) {
 
     //city validation
   } else if (type === "location") {
-
+    let zoneForm = document.getElementById(type).value;
+    console.log(type)
+    if (location1.checked ||location2.checked) {
+      console.log("Le ", type, "est bon")
+      document.getElementById(type + "-error").innerText = ""
+    } else {
+      document.getElementById(type + "-error").innerText = errorMessages[type]
+    }
 
 
   }
