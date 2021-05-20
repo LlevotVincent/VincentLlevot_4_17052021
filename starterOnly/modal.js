@@ -28,17 +28,6 @@ const closePopup = document
 
 function closeFormPopup() {
   modalbg.style.display = "none";
-}
-
-
-function checkFirst(text) {
-	if (text.value !== '' && text.value.length >= 2){
-    FirstError.style.display = "none";
-  }else{ 
-    document.getElementById("firstError")
-    FirstError.style.display = "block";
-}}
-
  
 function checkContent(type) {
  
@@ -87,11 +76,12 @@ function checkContent(type) {
     } else {
       document.getElementById(type + "-error").innerText = errorMessages[type]
     }
+
+    //city validation
+  } else if (type === "location") {
+
+
+
   }
-//
-
-
-
-
 
 }
