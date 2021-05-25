@@ -29,68 +29,68 @@ const closePopup = document
 function closeFormPopup() {
   modalbg.style.display = "none";
 }
- 
-function checkContent(type) {
- 
-  let errorMessages = {
-    first: "Veuillez entrer 2 caractères ou plus pour le champ prénom.",
-    last: "Veuillez entrer 2 caractères ou plus pour le champ nom.",
-    email: "Veuillez entrer une adresse email valide.",
-    date: "Veuillez entrer une date de naissance valide.",
-    quantity: "Le nombre maximum de tournois est 99.",
-    location: "Veuillez choisir une ville.",
-    checkbox: "Veuillez accepter les conditions d'utilisations.",
-  };
-
-    //first last name validation
-  if (type === "first" || type === "last") {
-    let zoneForm = document.getElementById(type).value;
-    console.log(type)
-    if (zoneForm != null && zoneForm.length >= 1) {
-      console.log("Le ", type, "est bon")
-      document.getElementById(type + "-error").innerText = ""
-    } else {
-      document.getElementById(type + "-error").innerText = errorMessages[type]
-    }
-
-    // email validation
-  } else if (type === "email") {
-    let zoneForm = document.getElementById(type).value;
-    let regMail = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
-    console.log(type)
-    if (regMail.exec(zoneForm)) {
-      console.log("Le ", type, "est bon")
-      document.getElementById(type + "-error").innerText = ""
-    } else {
-      document.getElementById(type + "-error").innerText = errorMessages[type]
-    }
-
-    // date validation
-  } else if (type === "date") {
-
-    // quantity validation
-  } else if (type === "quantity") {
-    let zoneForm = document.getElementById(type).value;
-    console.log(type)
-    if (zoneForm >= 0 && zoneForm <= 99 ) {
-      console.log("Le ", type, "est bon")
-      document.getElementById(type + "-error").innerText = ""
-    } else {
-      document.getElementById(type + "-error").innerText = errorMessages[type]
-    }
-
-    //city validation
-  } else if (type === "location") {
-    let zoneForm = document.getElementById(type).value;
-    console.log(type)
-    if (location1.checked ||location2.checked) {
-      console.log("Le ", type, "est bon")
-      document.getElementById(type + "-error").innerText = ""
-    } else {
-      document.getElementById(type + "-error").innerText = errorMessages[type]
-    }
 
 
+// check firstname
+document.getElementById("first").addEventListener("change", function(check) {
+  var firstname = check.target.value;
+  if (firstname.length == null || firstname.length < 2){
+    console.log('pas assez de caractere');
+    document.getElementById("first-error").innerText = "Veuillez entrer 2 caractères ou plus.";
+  } else {
+    console.log('C est bon');
+    document.getElementById("first-error").innerText = "";
+  }
+});
+
+// check lastname
+document.getElementById("last").addEventListener("change", function(check) {
+  var lastname = check.target.value;
+  if (lastname.length == null || lastname.length < 2) {
+    console.log('pas assez de caractere');
+    document.getElementById("last-error").innerText = "Veuillez entrer 2 caractères ou plus.";
+  } else {
+    console.log('C est bon');
+    document.getElementById("last-error").innerText = "";
+  }
+});
+
+//check email
+document.getElementById("email").addEventListener("change", function(check) {
+  var mail = check.target.value;
+  var regMail = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+  if (regMail.exec(mail)) {     //compare les deux données
+    console.log('e-mail bon');
+    document.getElementById("email-error").innerText = "";
+  } else {
+    console.log('e-mail faux');
+    document.getElementById("email-error").innerText = "Veuillez saisir un mail valide";
+  }
+});
+
+//Check quantité
+document.getElementById("quantity").addEventListener("change", function(check) {
+  var quantityNumber = check.target.value;
+  if(quantityNumber > 0 && quantityNumber < 99) {
+    console.log('quantity bonne');
+    document.getElementById("quantity-error").innerText = "";
+  } else {
+    console.log('quantity fausse');
+    document.getElementById("quantity-error").innerText = "Veuillez rentrer une quantité comprise entre 0 et 99";
+  }
+});
+
+//Check city
+document.getElementById('btn-submit').addEventListener("click",function(a){
+  if(location1.checked ===true) {
+    console.log('check ok');
+  } else {
+    console.log('check Nok');
   }
 
-}
+})
+
+
+
+
+
