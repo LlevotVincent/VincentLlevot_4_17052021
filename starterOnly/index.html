@@ -64,7 +64,7 @@
                   name="first"
                   id="first"
                   class="text-control"/><br>
-                <span id="first-error" style="color:white"></span>
+                <span id="first-error" ></span>
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br>
@@ -73,7 +73,7 @@
                   type="text" 
                   id="last" 
                   name="last"/><br>
-                <span id="last-error" style="color:white"></span>
+                <span id="last-error"></span>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br>
@@ -82,7 +82,7 @@
                   type="text"
                   id="email"
                   name="email"/><br>
-                  <span id="email-error" style="color:white"></span>
+                  <span id="email-error"></span>
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label><br>
@@ -91,7 +91,7 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"/><br>
-                  <span id="birthdate-error" style="color:white"></span>
+                  <span id="birthdate-error"></span>
               </div>
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
@@ -102,7 +102,7 @@
                   name="quantity"
                   min="0"
                   max="99"/><br>
-                <span id="quantity-error" style="color:white"></span>
+                <span id="quantity-error"></span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div class="formData">
@@ -159,8 +159,8 @@
                   value="Portland"/>
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label>
-                <span id="location-error" style="color:white"></span>
+                  Portland</label><br>
+                <span id="location-error"></span>
               </div>
 
               <div class="formData">
@@ -180,6 +180,7 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <span id="checkbox-error"></span>
               </div>
               <input
                 class="btn-submit"
@@ -187,6 +188,14 @@
                 class="button"
                 value="C'est parti"/>
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="bground">
+        <div class="content">
+          <span class="close"></span>
+          <div class="modal-popup">
+            <p>Merci ! Votre réservation a été reçue.</p> 
           </div>
         </div>
       </div>

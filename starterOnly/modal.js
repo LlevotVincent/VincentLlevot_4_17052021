@@ -31,47 +31,72 @@ function closeFormPopup() {
 }
 
 document.getElementById("Formulaire").addEventListener('submit', checkForm)
-function checkForm () {
+function checkForm (event) {
 
   // Check prénom
-  var firstname = document.getElementById("first").value;
-  if (firstname.length != "" || firstname.length > 2){
-    document.getElementById("first-error").innerText = "";
+  var firstname = document.getElementById("first");
+  var firstname_error = document.getElementById("first-error")
+  if (firstname.value.length != null && firstname.value.length > 1){
+    firstname_error.innerText = "";
+    firstname.style.border = '';
   } else {
-    document.getElementById("first-error").innerText = "Veuillez entrer 2 caractères ou plus.";
+    firstname_error.innerText = "Veuillez entrer 2 caractères ou plus.";
+    firstname_error.style.fontSize = '12px';
+    firstname_error.style.color = 'red';
+    firstname.style.border = 'solid 2px red';
     event.preventDefault();
   }
   // check nom
-  var lastname = document.getElementById("last").value;
-  if (lastname.length != "" || lastname.length > 2) {
-    document.getElementById("last-error").innerText = "";
+  var lastname = document.getElementById("last");
+  var lastname_error = document.getElementById("last-error");
+  if (lastname.value.length != null && lastname.value.length > 1) {
+    lastname_error.innerText = "";
+    lastname.style.border = '';
   } else {
-    document.getElementById("last-error").innerText = "Veuillez entrer 2 caractères ou plus.";
+    lastname_error.innerText = "Veuillez entrer 2 caractères ou plus.";
+    lastname_error.style.fontSize = '12px';
+    lastname_error.style.color = 'red';
+    lastname.style.border = 'solid 2px red';
     event.preventDefault();
   }
   // check email
-  var mail = document.getElementById("email").value;
+  var mail = document.getElementById("email");
+  var mail_error = document.getElementById("email-error")
   var regMail = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
-  if (regMail.exec(mail)) {     //compare les deux données
-    document.getElementById("email-error").innerText = "";
+  if (regMail.exec(mail.value)) {     //compare les deux données
+    mail_error.innerText = "";
+    mail.style.border = '';
   } else {
-    document.getElementById("email-error").innerText = "Veuillez saisir un mail valide";
+    mail_error.innerText = "Veuillez saisir un mail valide";
+    mail_error.style.fontSize = '12px';
+    mail_error.style.color = 'red';
+    mail.style.border = 'solid 2px red';
     event.preventDefault();
   }
   //Check quantité
-  var quantityNumber = document.getElementById("quantity").value;
-  if(quantityNumber > 0 && quantityNumber < 99) {
-    document.getElementById("quantity-error").innerText = "";
+  var quantityNumber = document.getElementById("quantity");
+  var quantityNumber_error = document.getElementById("quantity-error");
+  if(quantityNumber.value >= 0 && quantityNumber.value < 100 && quantityNumber.value != "") {
+    quantityNumber_error.innerText = "";
+    quantityNumber.style.border = '';
   } else {
-    document.getElementById("quantity-error").innerText = "Veuillez rentrer une quantité comprise entre 0 et 99";
+    quantityNumber_error.innerText = "Veuillez rentrer une quantité comprise entre 0 et 99";
+    quantityNumber_error.style.fontSize = '12px';
+    quantityNumber_error.style.color = 'red';
+    quantityNumber.style.border = 'solid 2px red';
     event.preventDefault();
   }
   // Check Date
-  var birthdate = document.getElementById("birthdate").value;
-  if(birthdate !=="") {
-    document.getElementById("birthdate-error").innerText = "";
+  var birthdate = document.getElementById("birthdate");
+  var birthdate_error = document.getElementById("birthdate-error")
+  if(birthdate.value !=="") {
+    birthdate_error.innerText = "";
+    birthdate.style.border = '';
   } else {
-    document.getElementById("birthdate-error").innerText = "Veuillez renseigner une date";
+    birthdate_error.innerText = "Vous devez entrer votre date de naissance.";
+    birthdate.style.border = 'solid 2px red';
+    birthdate_error.style.fontSize = '12px';
+    birthdate_error.style.color = 'red';
     event.preventDefault();
   }
   // Check ville
@@ -81,15 +106,31 @@ function checkForm () {
   var location4 = document.getElementById("location4");
   var location5 = document.getElementById("location5");
   var location6 = document.getElementById("location6");
-  if(location1.checked||location2.checked||location3.checked||location4.checked||location5.checked||location6.checked) {
-    document.getElementById("location-error").innerText = "";
+  var location_error = document.getElementById("location-error");
+  if(location1.checked||
+    location2.checked||
+    location3.checked||
+    location4.checked||
+    location5.checked||
+    location6.checked) {
+    location_error.innerText = "";
   } else {
-    document.getElementById("location-error").innerText = "Veuillez cocher une ville";
+    location_error.innerText = "Vous devez choisir une option.";
+    location_error.style.fontSize = '12px';
+    location_error.style.color = 'red';
     event.preventDefault();
   }
-
-
-
-
-
+  // Check condition
+  var checkbox1 = document.getElementById("checkbox1");
+  var checkbox_error = document.getElementById("checkbox-error");
+  if(checkbox1.checked) {
+    checkbox_error.innerText = "";
+    checkbox_error.style.border = '';
+  } else {
+    checkbox_error.innerText = "Vous devez vérifier que vous acceptez les termes et conditions.";
+    checkbox_error.style.fontSize = '12px';
+    checkbox_error.style.color = 'red';
+    event.preventDefault();
+ }
 };
+

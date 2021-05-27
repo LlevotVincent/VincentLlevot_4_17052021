@@ -187,6 +187,10 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
+.modal-popup {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
 
 label {
   font-family: var(--font-default);
