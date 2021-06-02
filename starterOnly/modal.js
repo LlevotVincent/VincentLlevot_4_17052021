@@ -10,38 +10,58 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.getElementsByClassName("modal-btn");
-const formData = document.querySelectorAll(".formData");
+const formData = document.getElementsByClassName("formData");
 const modalbgpopup = document.getElementById("bgroundpopup");
+const Formulaire = document.getElementById("Formulaire");
+const formChild = Formulaire.children;
 
-
-
-// launch modal event
+// launch Modal-body
 document.querySelector('.btn-signup').addEventListener("click", launchModalBody);
-
-// launch modal form
 function launchModalBody() {
   modalbg.style.display = "block";
-}
-
-// close Modal-popup
-document.querySelector("span.close").addEventListener("click",closeModalBody);
-
-function closeModalBody() {
-  modalbg.style.display = "none";
-
 };
-// close Modal-popup
 
-  modalbgpopup.style.display = "none";
+// close Modal-body
+document.querySelector("span.close").addEventListener("click",closeModal);
 
-
+function closeModal() {
+  modalbg.style.display = "none";
+};
 
 // function to Check Formulaire
 
-document.getElementById("Formulaire").addEventListener('submit', checkForm)
+document.getElementById("Formulaire").addEventListener('submit', checkForm);
+function checkForm (event){
 
+  var reserveChild = reserve.children;
+  var textValid = document.createElement("p");
+  event.preventDefault();
+if (validateForm ()) {
+  for (child of reserveChild) { //Pour chaque enfant de "reserve"
+    if (child.className == 'formData') { //si sa classe est "formData"
+      child.classList.add('select-hide'); //ajoute la classe "select-hide"
+  }
+    if (child.className == 'text-label') { //si sa classe est "text-label"
+      child.classList.add('select-hide'); //ajoute la classe "select-hide"
+  }
+    if (child.className == 'btn-submit') { //si sa classe est "btn-submit"
+      child.classList.add('select-hide'); //ajoute la classe "select-hide"
+  }
+  //ajout du message de remerciement
+  Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
+  textValid.classList.add('Text-validation');
+ }
+  //ajout du bouton fermer
+  var BtnValid = document.createElement("button");
+  Formulaire.appendChild(BtnValid);
+  BtnValid.innerHTML = "Fermer";
+
+  BtnValid.setAttribute('id', 'Btnclose');
+  BtnValid.classList.add('btn-validation');
+  BtnValid.classList.add('btn-close');
+ }
+};
 function validateForm () {
-
   // Check prénom
   var firstname = document.getElementById("first");
   var firstname_error = document.getElementById("first-error");
@@ -141,12 +161,39 @@ if(checkbox1.checked) {
   checkbox_error.style.color = 'red';
   return false;
 }
-  return true
+  return true;
 };
 
   function checkForm (event){
-event.preventDefault();
-if (validateForm ()) {
-  modalbgpopup.style.display = "block";
-}
-};
+
+    var reserveChild = reserve.children;
+    var textValid = document.createElement("p");
+    event.preventDefault();
+  if (validateForm ()) {
+	  for (child of reserveChild) { //Pour chaque enfant de "reserve"
+      if (child.className == 'formData') { //si sa classe est "formData"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+      if (child.className == 'text-label') { //si sa classe est "text-label"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+      if (child.className == 'btn-submit') { //si sa classe est "btn-submit"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+    //ajout du message de remerciement
+    Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
+    textValid.classList.add('Text-validation');
+   }
+    //ajout du bouton fermer
+    var BtnValid = document.createElement("button");
+    Formulaire.appendChild(BtnValid);
+    BtnValid.innerHTML = "Fermer";
+
+    BtnValid.setAttribute('id', 'Btnclose');
+    BtnValid.classList.add('btn-validation');
+    BtnValid.classList.add('btn-close');
+   }
+  };
+ 
+
+  
