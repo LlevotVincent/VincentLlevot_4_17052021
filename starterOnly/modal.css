@@ -366,7 +366,7 @@ input[data-error]::after {
   top: 50%;
   text-align: center;
   font-weight: normal;
-  font-size: 3Opx;
+  font-size: 30px;
   z-index: 99;
 }
 
@@ -381,7 +381,7 @@ input[data-error]::after {
 
 /* Hide the items when the select box is closed: */
 .select-hide {
-  visibility: hidden;
+  opacity: 0;
 }
 
 

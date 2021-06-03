@@ -33,34 +33,33 @@ function closeModal() {
 document.getElementById("Formulaire").addEventListener('submit', checkForm);
 function checkForm (event){
 
-  var reserveChild = reserve.children;
-  var textValid = document.createElement("p");
-  event.preventDefault();
-if (validateForm ()) {
-  for (child of reserveChild) { //Pour chaque enfant de "reserve"
-    if (child.className == 'formData') { //si sa classe est "formData"
-      child.classList.add('select-hide'); //ajoute la classe "select-hide"
-  }
-    if (child.className == 'text-label') { //si sa classe est "text-label"
-      child.classList.add('select-hide'); //ajoute la classe "select-hide"
-  }
-    if (child.className == 'btn-submit') { //si sa classe est "btn-submit"
-      child.classList.add('select-hide'); //ajoute la classe "select-hide"
-  }
-  //ajout du message de remerciement
-  Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
-  textValid.classList.add('Text-validation');
- }
-  //ajout du bouton fermer
-  var BtnValid = document.createElement("button");
-  Formulaire.appendChild(BtnValid);
-  BtnValid.innerHTML = "Fermer";
-
-  BtnValid.setAttribute('id', 'Btnclose');
-  BtnValid.classList.add('btn-validation');
-  BtnValid.classList.add('btn-close');
- }
-};
+    var reserveChild = reserve.children;
+    var textValid = document.createElement("p");
+    event.preventDefault();
+  if (validateForm ()) {
+	  for (child of reserveChild) { //Pour chaque enfant de "reserve"
+      if (child.className == 'formData') { //si sa classe est "formData"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+      if (child.className == 'text-label') { //si sa classe est "text-label"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+      if (child.className == 'btn-submit') { //si sa classe est "btn-submit"
+        child.classList.add('select-hide'); //ajoute la classe "select-hide"
+    }
+    //ajout du message de remerciement
+    Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
+    textValid.classList.add('Text-validation');
+   }
+    //ajout du bouton fermer
+    var BtnValid = document.createElement("button");
+    Formulaire.appendChild(BtnValid);
+    BtnValid.innerHTML = "Fermer";
+    BtnValid.setAttribute('id', 'Btnclose');
+    BtnValid.classList.add('btn-validation');
+    BtnValid.classList.add('btn-close');
+   }
+  };
 function validateForm () {
   // Check prénom
   var firstname = document.getElementById("first");
@@ -164,36 +163,11 @@ if(checkbox1.checked) {
   return true;
 };
 
-  function checkForm (event){
-
-    var reserveChild = reserve.children;
-    var textValid = document.createElement("p");
-    event.preventDefault();
-  if (validateForm ()) {
-	  for (child of reserveChild) { //Pour chaque enfant de "reserve"
-      if (child.className == 'formData') { //si sa classe est "formData"
-        child.classList.add('select-hide'); //ajoute la classe "select-hide"
-    }
-      if (child.className == 'text-label') { //si sa classe est "text-label"
-        child.classList.add('select-hide'); //ajoute la classe "select-hide"
-    }
-      if (child.className == 'btn-submit') { //si sa classe est "btn-submit"
-        child.classList.add('select-hide'); //ajoute la classe "select-hide"
-    }
-    //ajout du message de remerciement
-    Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
-    textValid.classList.add('Text-validation');
-   }
-    //ajout du bouton fermer
-    var BtnValid = document.createElement("button");
-    Formulaire.appendChild(BtnValid);
-    BtnValid.innerHTML = "Fermer";
-
-    BtnValid.setAttribute('id', 'Btnclose');
-    BtnValid.classList.add('btn-validation');
-    BtnValid.classList.add('btn-close');
-   }
-  };
  
 
-  
+  // close Modal-body
+document.getElementById("Btnclose").addEventListener("click",closeModal);
+
+function closeModal() {
+  modalbg.style.display = "none";
+};
