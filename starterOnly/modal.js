@@ -1,3 +1,4 @@
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -14,6 +15,7 @@ const formData = document.getElementsByClassName("formData");
 const modalbgpopup = document.getElementById("bgroundpopup");
 const Formulaire = document.getElementById("Formulaire");
 const formChild = Formulaire.children;
+const reserveChild = reserve.children;
 
 // launch Modal-body
 document.querySelector('.btn-signup').addEventListener("click", launchModalBody);
@@ -30,14 +32,13 @@ function closeModal() {
 
 // function to Check Formulaire
 
-document.getElementById("Formulaire").addEventListener('submit', checkForm);
+Formulaire.addEventListener('submit', checkForm);
 function checkForm (event){
 
-    var reserveChild = reserve.children;
     var textValid = document.createElement("p");
     event.preventDefault();
   if (validateForm ()) {
-	  for (child of reserveChild) { //Pour chaque enfant de "reserve"
+	  for (child of formChild) { //Pour chaque enfant de "reserve"
       if (child.className == 'formData') { //si sa classe est "formData"
         child.classList.add('select-hide'); //ajoute la classe "select-hide"
     }
@@ -48,18 +49,24 @@ function checkForm (event){
         child.classList.add('select-hide'); //ajoute la classe "select-hide"
     }
     //ajout du message de remerciement
-    Formulaire.appendChild(textValid).innerHTML = "Merci ! Votre réservation a été reçue."
-    textValid.classList.add('Text-validation');
+    Formulaire.appendChild(textValid).innerText = "Merci ! Votre réservation a été reçue."
+    textValid.setAttribute('id', 'Text-validation');
    }
     //ajout du bouton fermer
     var BtnValid = document.createElement("button");
     Formulaire.appendChild(BtnValid);
-    BtnValid.innerHTML = "Fermer";
+    BtnValid.innerText = "Fermer";
     BtnValid.setAttribute('id', 'Btnclose');
     BtnValid.classList.add('btn-validation');
     BtnValid.classList.add('btn-close');
+    document.getElementById("Btnclose").addEventListener("click",resetForm);
+    document.getElementById("Btnclose").addEventListener("click",closeModal);
    }
   };
+
+
+
+
 function validateForm () {
   // Check prénom
   var firstname = document.getElementById("first");
@@ -163,11 +170,24 @@ if(checkbox1.checked) {
   return true;
 };
 
- 
+ //reset Formulaire
+ function resetForm() {
+  for (child of formChild) {
+		//rend visible toutes les div .formData et supprime la classe temporaire
+		if (child.className == 'formData select-hide') {
+			child.classList.replace('select-hide','select-show');
+    }
+    if (child.className == 'text-label select-hide') { //si sa classe est "text-label"
+      child.classList.replace('select-hide','select-show'); //ajoute la classe "select-hide"
+    }
+    if (child.className == 'btn-submit select-hide') { //si sa classe est "btn-submit"
+      child.classList.replace('select-hide','select-show'); //ajoute la classe "select-hide"
+    }
+}
+document.getElementById("Btnclose").remove();
+document.getElementById("Text-validation").remove();
+document.getElementById("Formulaire").reset();
+}
 
-  // close Modal-body
-document.getElementById("Btnclose").addEventListener("click",closeModal);
 
-function closeModal() {
-  modalbg.style.display = "none";
-};
+
