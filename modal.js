@@ -10,16 +10,16 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.getElementsByClassName("modal-btn");
-const formData = document.getElementsByClassName("formData");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formData = document.querySelectorAll(".formData");
 const modalbgpopup = document.getElementById("bgroundpopup");
 const Formulaire = document.getElementById("Formulaire");
 const formChild = Formulaire.children;
 const reserveChild = reserve.children;
 
 // launch Modal-body
-document.querySelector('.btn-signup').addEventListener("click", launchModalBody);
-function launchModalBody() {
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+function launchModal() {
   modalbg.style.display = "block";
 };
 

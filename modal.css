@@ -36,6 +36,8 @@ img {
 }
 .header-logo {
     float: left;
+    width: 60%;
+    height: auto;
 }
 .main-navbar {
     float: right;
@@ -483,13 +485,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
@@ -503,6 +498,11 @@ footer {
     display: block;
     text-align: left;
   }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
 }
 
  @media screen and (max-width: 540px) {
@@ -511,6 +511,11 @@ footer {
     float: right;
     display: block;
     margin-top: -15px;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 1.5rem;
+    
   }
 } 
 @media screen and (max-width: 800px) {
@@ -530,7 +535,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3rem;
     white-space: normal;
   }
   .hero-text {
