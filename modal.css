@@ -159,11 +159,13 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  box-sizing: content-box;
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  width: auto;
 }
 
 label {
@@ -362,21 +364,24 @@ input[data-error]::after {
 /* Style items (options): */
 #Text-validation {
   position: absolute;
-  top: 50%;
-  text-align: center;
+  top: 40%;
+  left: 0;
+  padding: 20px  ;
   font-weight: normal;
   font-size: 30px;
   z-index: 99;
+  width: 100%;
 }
 
 /* Style items (options): */
 .btn-validation {
   position: absolute;
-  bottom: 10%;
-  left: 30%;
   z-index: 99;
-}
+  bottom: 10%;
+  left: 28%;
 
+
+}
 
 /* Hide the items when the select box is closed: */
 .select-hide {

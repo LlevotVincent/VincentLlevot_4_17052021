@@ -64,9 +64,6 @@ function checkForm (event){
    }
   };
 
-
-
-
 function validateForm () {
   // Check prénom
   var firstname = document.getElementById("first");
@@ -177,16 +174,16 @@ if(checkbox1.checked) {
 		if (child.className == 'formData select-hide') {
 			child.classList.replace('select-hide','select-show');
     }
-    if (child.className == 'text-label select-hide') { //si sa classe est "text-label"
-      child.classList.replace('select-hide','select-show'); //ajoute la classe "select-hide"
+    if (child.className == 'text-label select-hide') { //si sa classe est "text-label select-hide"
+      child.classList.replace('select-hide','select-show'); //ajoute la classe "select-hide" par "select-show"
     }
-    if (child.className == 'btn-submit select-hide') { //si sa classe est "btn-submit"
-      child.classList.replace('select-hide','select-show'); //ajoute la classe "select-hide"
+    if (child.className == 'btn-submit select-hide') { //si sa classe est "btn-submit select-hide"
+      child.classList.replace('select-hide','select-show'); //remplace la classe "select-hide" par "select-show"
     }
 }
-document.getElementById("Btnclose").remove();
-document.getElementById("Text-validation").remove();
-document.getElementById("Formulaire").reset();
+  document.getElementById("Btnclose").remove();
+  document.getElementById("Text-validation").remove();
+  document.getElementById("Formulaire").reset();
 }
 
 
